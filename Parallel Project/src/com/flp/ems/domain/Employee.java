@@ -1,18 +1,53 @@
 package com.flp.ems.domain;
 import java.sql.Date;
+import java.util.Scanner;
 public class Employee 
 {
+static int count=1;	
 private int Employee_id,Department_id,Project_id,Roles_id;
 private Long Phone_no;
 private String Name,Email_id,Kin_Id,Date_of_birth,Date_of_Joining,
 Address;
+private PROJECT p;
+private Role r;
+public Employee()
+{
+	int projid;
+	Employee_id = count;
+	count++;
+	Department d;
+	PROJECT p1=new PROJECT();
+	Scanner s=new Scanner(System.in);
+	System.out.println("choose projectid from below");
+	System.out.println("Enter projectid 1 for proj on devops ");
+	System.out.println("Enter projectid 2 for proj on Clouds");
+	System.out.println("Enter projectid 3 for proj on Mainframe");
+	System.out.println("Enter projectid 4 for proj on Testing");
+	System.out.println("Enter projectid 5 for proj on Admjava");
+	System.out.println("Enter the project id");
+	projid=s.nextInt();
+	p=p1.Search_Project(projid);
+	d=p.getD();
+	int deptid=d.getDepartment_id();
+	int Pid=p.getProject_id();
+	setDepartment_id(deptid);
+	setProject_id(Pid);
+	System.out.println("Enter roleid 1 for proj on software engineer");
+	System.out.println("Enter roleid 2 for proj on software analyst");
+	System.out.println("Enter roleid 3 for proj on software consultant");
+	System.out.println("Enter the role id");
+	int roleid=s.nextInt();
+	Role r1=new Role();
+	r=r1.Search_role(roleid);
+	int roll=r.getRole_id();
+	setRoles_id(roll);
+	
+}
 
 public int getEmployee_id() {
 	return Employee_id;
 }
-public void setEmployee_id(int employee_id) {
-	Employee_id = employee_id;
-}
+
 public Long getPhone_no() {
 	return Phone_no;
 }
