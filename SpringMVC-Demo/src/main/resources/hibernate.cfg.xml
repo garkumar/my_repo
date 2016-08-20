@@ -6,8 +6,11 @@
 <hibernate-configuration>
 
     <session-factory>
-		<!-- <property name="hibernate.mapping">org.cap.pojo.Employee</property> -->
+		<!-- <property name="hibernate.mapping">com.flp.ems.domain.Employee</property> -->
        <mapping class="com.flp.ems.domain.Employee"/>
+       <mapping class="com.flp.ems.domain.Department"/>
+	   <mapping class="com.flp.ems.domain.Role"/>
+	   <mapping class="com.flp.ems.domain.Project"/>
     </session-factory>
 
 </hibernate-configuration>

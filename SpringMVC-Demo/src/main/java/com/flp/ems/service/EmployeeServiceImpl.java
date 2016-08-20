@@ -2,8 +2,11 @@ package com.flp.ems.service;
 
 import java.util.List;
 
-
+import com.flp.ems.domain.Department;
 import com.flp.ems.domain.Employee;
+import com.flp.ems.domain.Project;
+import com.flp.ems.domain.Role;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +32,24 @@ public class EmployeeServiceImpl  implements EmployeeService{
 	}
 
 	@Transactional
+	public List<Department> getAllDepartments() {
+		
+		return employeeDao.getAllDepartments();
+	}
+
+	@Transactional
+	public List<Project> getAllProjects() {
+		
+		return employeeDao.getAllProjects();
+	}
+
+	@Transactional
+	public List<Role> getAllRoles() {
+		
+		return employeeDao.getAllRoles();
+	}
+
+	@Transactional
 	public void deleteEmployee(int employeeId) {
 		
 		employeeDao.deleteEmployee(employeeId);
@@ -40,5 +61,23 @@ public class EmployeeServiceImpl  implements EmployeeService{
 	@Transactional
 	public void updateEmployee(Employee emp){
 		employeeDao.updateEmployee(emp);
+	}
+
+	@Transactional
+	public Department DepartmentfindById(String id) {
+		// TODO Auto-generated method stub
+		return employeeDao.DepartmentfindById(id);
+	}
+
+	@Transactional
+	public Project ProjectfindById(String id) {
+		// TODO Auto-generated method stub
+		return employeeDao.ProjectfindById(id);
+	}
+
+	@Transactional
+	public Role RolefindById(String id) {
+		// TODO Auto-generated method stub
+		return employeeDao.RolefindById(id);
 	}
 }
